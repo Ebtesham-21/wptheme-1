@@ -31,7 +31,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="post-title"><?php the_title();?></h2>
+                        <h2 class="post-title">
+                           <a href= "<?php the_permalink(); ?>"><?php the_title();?></a>
+                        </h2>
             </div> 
             
         </div>
@@ -40,7 +42,9 @@
                 <p>
                     <strong> <?php the_author();?></strong><br/>
                     <?php the_date();?>
+                  
                 </p>
+                  <?php echo get_the_tag_list("<ul class=\"list-unstyled\"><li>","</li><li>","</li></ul>");?>
                 <ul class="list-unstyled">
                     <li>dhaka</li>
                 </ul>    
@@ -52,9 +56,16 @@
                         the_post_thumbnail("large", array("class='img-fluid'"));
                     }
                     ?>
+                    <?php 
+                    if(is_single()){
+                        the_content();
+                    } else{
+                        the_excerpt();
+                    }
+                    ?>
 
                 </p>
-                <?php the_content(); ?>
+                
             </div>
         </div>
         </div>
@@ -62,6 +73,16 @@
         <?php
     }  
     ?>
+    <div class="container post-pagination">
+        <div class="row">
+            <div class="col-md-4"></div>
+            
+            <div class="col-md-8">
+                <?php 
+                the_posts_pagination( array("screen_reader_text" =>' ') );
+                ?>
+            </div>
+        </div>
 
    </div>
 <?php wp_footer(); ?>   
