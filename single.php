@@ -32,7 +32,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h2 class="post-title">
-                           <a href= "<?php the_permalink(); ?>"><?php the_title();?></a>
+                          <?php the_title();?>
                         </h2>
             </div> 
             
@@ -57,12 +57,17 @@
                     }
                     ?>
                     <?php 
-                    the_excerpt();
+                    the_content(); 
                     ?>
 
                 </p>
                 
             </div>
+            <?php if(comments_open()): ?>
+            <div class="col-md-10 offset-md-1">
+                <?php comments_template(); ?>
+            </div>
+            <?php endif; ?>
         </div>
         </div>
         </div>
