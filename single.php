@@ -58,16 +58,20 @@
                     ?>
                     <?php 
                     the_content(); 
+                    next_post_link(  );
+                    echo"<br/>";
+                    previous_post_link();
+
                     ?>
 
                 </p>
                 
             </div>
-            <?php if(comments_open()): ?>
+            <!-- <?php if(comments_open()): ?>
             <div class="col-md-10 offset-md-1">
                 <?php comments_template(); ?>
             </div>
-            <?php endif; ?>
+            <?php endif; ?> -->
         </div>
         </div>
         </div>

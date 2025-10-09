@@ -1,3 +1,3 @@
 <?php
-echo "page";
+get_template_part("templates/pt", "three");
 
