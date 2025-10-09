@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    
-    <meta charset="UTF-8">
-    <?php wp_head(); ?>
-</head>
+
 <body <?php body_class(); ?>>
    <div class="header">
         <div class="container">
@@ -58,9 +54,9 @@
                     ?>
                     <?php 
                     the_content(); 
-                    next_post_link(  );
+                   
                     echo"<br/>";
-                    previous_post_link();
+                   
 
                     ?>
 
@@ -84,12 +80,22 @@
             
             <div class="col-md-8">
                 <?php 
-                the_posts_pagination( array("screen_reader_text" =>' ') );
+                the_posts_pagination( array("screen_reader_text" =>' ',
+                "prev_text" => "New Posts",
+                "next_text" => "Old Posts"
+                ) );
                 ?>
             </div>
         </div>
+    
+   </div>
+   <div class="col-md-4">
+        <?php
+        if(is_active_sidebar("sidebar-1"))
+        {
+           dynamic_sidebar("sidebar-1");
+        }
+        ?>
 
    </div>
-<?php wp_footer(); ?>   
-</body>
-</html>
+
